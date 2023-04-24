@@ -20,7 +20,7 @@ class User < ApplicationRecord
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { in: 6..255 }, allow_nil: true
 
-  def self.findbycredentials(username, password)
+  def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     if (user&.authenticate(password))
       user
