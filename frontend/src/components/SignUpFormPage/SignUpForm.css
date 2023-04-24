@@ -1,0 +1,20 @@
+form {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    line-break: auto;
+    vertical-align: auto;
+    border:solid 2px black;
+}
+
+#credentials {
+    display:block;
+    margin: 5px;
+    line-break: auto;
+}
+
+#password {
+    display: block;
+    margin: 5px;
+    line-break: auto;
+}

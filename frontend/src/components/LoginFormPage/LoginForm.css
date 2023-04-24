@@ -1,0 +1,31 @@
+form {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    line-break: auto;
+    vertical-align: auto;
+    border:solid 2px black;
+}
+
+#credentials {
+    display:block;
+    margin: 5px;
+}
+
+#password {
+    display: block;
+    margin: 5px;
+}
+
+button {
+    border-radius: 8px;
+    background-color: #0835db;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    margin: 20px 0;
+    cursor: pointer;
+}

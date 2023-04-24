@@ -42,16 +42,16 @@ function SignUpFormPage() {
                     <li key={error}>{error}</li>)}
             </ul>
             <label>Email
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                    <input className="credentials" type="text" value={email} onChange={(e) => setEmail(e.target.value)} required/>
             </label>
             <label>Username
-                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required/>
+                    <input className="credentials" type="text" value={username} onChange={(e) => setUsername(e.target.value)} required/>
             </label>
             <label>Password
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                    <input className="credentials" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
             </label>
             <label>Confirm Password
-                    <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required/>
+                    <input className="password" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required/>
             </label>
             <button type="submit">Sign Up</button>
         </form>
