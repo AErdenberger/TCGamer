@@ -88,6 +88,8 @@ GEM
       reline (>= 0.3.1)
     debug_inspector (1.1.0)
     erubi (1.12.0)
+    faker (3.2.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -183,6 +185,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap
   debug
+  faker
   jbuilder
   pg (~> 1.1)
   pry-rails
