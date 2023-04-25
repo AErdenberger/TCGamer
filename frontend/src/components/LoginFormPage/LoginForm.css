@@ -1,20 +1,23 @@
 form {
+    width: 340px;
+    height: 500px;
     display: inline-block;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     line-break: auto;
     vertical-align: auto;
-    border:solid 2px black;
+    font-variation-settings: "slnt" 0;
 }
 
 #credentials {
     display:block;
     margin: 5px;
-}
-
-#password {
-    display: block;
-    margin: 5px;
+    left: 50%;
+    border-radius: 8px;
+    border: none;
+    background-color: lightgrey;
 }
 
 button {
@@ -28,4 +31,8 @@ button {
     border: none;
     margin: 20px 0;
     cursor: pointer;
+}
+
+ul {
+    list-style: none;
 }

@@ -37,11 +37,11 @@ function LoginFormPage() {
                     <li key={error}>{error}</li>)}
             </ul>
             <h1>Log In</h1>
-            <label id='credentials'>Username or Email
-                <input type="text" value={credential} onChange={(e) => setCredential(e.target.value)} required />
+            <label>Username or Email
+                <input id='credentials' type="text" value={credential} onChange={(e) => setCredential(e.target.value)} required />
             </label>
-            <label id='password'>Password
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+            <label>Password
+                <input id='credentials' type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
             </label>
             <button type="submit">Log In</button>
         </form>

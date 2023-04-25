@@ -36,7 +36,8 @@ export const login = (user) => async dispatch => {
         })
     });
     const data = await response.json();
-    dispatch(setCurrentUser(data.user))
+    storeCurrentUser(data.user);
+    dispatch(setCurrentUser(data.user));
     return response
 };
 
@@ -82,9 +83,9 @@ const sessionReducer = ( state = initialState, action ) => {
     let nextState = { ...state }
     switch (action.type){
         case SET_CURRENT_USER:
-            return { nextState, user: action.payload };
+            return { ...nextState, user: action.user };
         case REMOVE_CURRENT_USER:
-            return { nextState, user: null }
+            return { ...nextState, user: null }
         default:
             return state;
     }
