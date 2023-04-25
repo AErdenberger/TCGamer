@@ -15,8 +15,8 @@ function Navigation() {
     } else {
         sessionLinks = (
             <>
-                <NavLink to="/login">Log In</NavLink>
-                <NavLink to="/Signup">Sign Up</NavLink>
+                <NavLink to="/login" className="auth">Log In</NavLink>
+                <NavLink to="/Signup" className="auth">Sign Up</NavLink>
             </>
         );
     }
@@ -24,7 +24,9 @@ function Navigation() {
     return (
         <ul>
             <li>
-                <NavLink exact to="/">Home</NavLink>
+                <NavLink exact to="/">
+                    <img src="/TCGGamerLogo.png" alt="" className="siteLogo" width="200" height="200" />
+                </NavLink>
                 {sessionLinks}
             </li>
         </ul>

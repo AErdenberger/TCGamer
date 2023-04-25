@@ -54,7 +54,7 @@ function SignUpFormPage() {
             <label>Confirm Password
                     <input id="credentials" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required/>
             </label>
-            <button type="submit">Sign Up</button>
+            <button className="login" type="submit">Sign Up</button>
         </form>
     );
 }

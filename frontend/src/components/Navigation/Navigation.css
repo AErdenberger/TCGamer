@@ -1,0 +1,9 @@
+.auth {
+    float: right;
+    position:relative;
+}
+
+.logOut {
+    height: 10%;
+    width: 10%;
+}

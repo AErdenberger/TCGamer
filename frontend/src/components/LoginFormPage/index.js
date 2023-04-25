@@ -43,7 +43,7 @@ function LoginFormPage() {
             <label>Password
                 <input id='credentials' type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
             </label>
-            <button type="submit">Log In</button>
+            <button className="login" type="submit">Log In</button>
         </form>
     );
 }

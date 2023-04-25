@@ -20,7 +20,7 @@ form {
     background-color: lightgrey;
 }
 
-button {
+.login {
     border-radius: 8px;
     background-color: #0835db;
     color: #fff;
