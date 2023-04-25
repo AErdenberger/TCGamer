@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_21_191414) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_25_135126) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cards", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "game", null: false
+    t.string "image_url", null: false
+    t.string "set", null: false
+    t.string "rarity", null: false
+    t.boolean "foil", null: false
+    t.float "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game"], name: "index_cards_on_game"
+    t.index ["name"], name: "index_cards_on_name", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
