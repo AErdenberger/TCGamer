@@ -5,7 +5,6 @@
 #  id         :bigint           not null, primary key
 #  name       :string           not null
 #  game       :string           not null
-#  image_url  :string           not null
 #  set        :string           not null
 #  rarity     :string           not null
 #  foil       :boolean          not null
@@ -25,13 +24,11 @@ class Card < ApplicationRecord
 
     validates :game, inclusion: {in: CARD_GAMES}
 
-    validates :image_url, presence: true
-
     validates :set, presence: true, length: {maximum: 6}
 
     validates :rarity, inclusion: {in: CARD_RARITIES}
 
-    validates :foil, presence: true
+    validates :foil, inclusion: [true, false]
 
-    validates :price, presence: true, format: { with: /\A\d+(?:\.\d{2})?\z/ }, numericality: { greater_than: 0, less_than: 1000000 }
+    validates :price, numericality: true, format: { with: /\A\d{1,6}(\.\d{0,2})?$\z/ }
 end
