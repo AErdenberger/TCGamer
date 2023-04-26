@@ -489,7 +489,6 @@ ApplicationRecord.transaction do
     foil: "true",
     price: "1.16"
   })
-  PKMN_card18.photo.attach(io: URI.open("https://tcgamer-seeds.s3.us-west-1.amazonaws.com/Pokemon_Cards/SWSH12PT5_EN_97.png"),
-    filename: "Zacian.png")
+  PKMN_card18.photo.attach(io: URI.open("https://tcgamer-seeds.s3.us-west-1.amazonaws.com/Pokemon_Cards/SWSH12PT5_EN_97.png"),filename: "Zamazenta.png")
     
   puts "Done!"
