@@ -1,4 +1,5 @@
 class Api::CardsController < ApplicationController
+    include ActiveStorage::SetCurrent
 
     def show
         @card = Card.find(params[:id])

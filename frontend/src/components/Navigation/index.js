@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from './ProfileButton';
+import SearchBar from "./SearchBar";
 import './Navigation.css';
 
 function Navigation() {
@@ -22,14 +23,21 @@ function Navigation() {
     }
 
     return (
-        <ul>
-            <li>
-                <NavLink exact to="/">
-                    <img src="/TCGGamerLogo.png" alt="" className="siteLogo" width="200" height="200" />
-                </NavLink>
-                {sessionLinks}
-            </li>
-        </ul>
+        <div >
+            <ul id="NavBar">
+                <li>
+                    <NavLink exact to="/">
+                        <img src="/TCGGamerLogo.png" alt="" className="siteLogo" width="100" height="100" />
+                    </NavLink>
+                </li>
+                <li>
+                    <SearchBar />
+                </li>
+                <li id="sessionLinks">
+                    {sessionLinks}
+                </li>
+            </ul>
+        </div>
     );
 }
 

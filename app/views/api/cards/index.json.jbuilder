@@ -9,7 +9,9 @@ json.cards do
             :rarity, 
             :foil, 
             :price
+            json.photo card.photo.url
         end
     end
 end
+
 

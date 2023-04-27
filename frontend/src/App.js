@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
+import CardIndex from './components/CardsIndex';
+import './index.css'
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path="/signup">
           <SignUpFormPage />
         </Route>
+        <Route path="/cards" component={CardIndex} />
       </Switch>
     </>
   );

@@ -1,0 +1,41 @@
+.cardTile {
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    margin: 5px;
+    width: 400px;
+    height: 300px;
+}
+
+.cardTile:hover {
+    background-color: rgb(231, 230, 230);
+}
+
+.cardImages {
+    height: 250px;
+    margin: 10px;
+}
+
+.cardName {
+    font-size: medium;
+    overflow-wrap: break-word;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: baseline;
+    margin-right: 15px;
+}
+
+/* .cardTile li {
+}
+
+.cardTile > ul {
+} */
+
+.AllTheCards {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+}

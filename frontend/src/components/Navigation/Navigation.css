@@ -1,9 +1,17 @@
-.auth {
-    float: right;
-    position:relative;
+#NavBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
 }
 
-.logOut {
-    height: 10%;
-    width: 10%;
+#SearchBar {
+    width: 500px;
+    border-radius: 8px;
+}
+
+#sessionLinks {
+    margin: 5px;
+    display: flex;
+    justify-content: space-evenly;
 }
