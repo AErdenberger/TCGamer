@@ -7,6 +7,7 @@ import CardIndex from './components/CardsIndex';
 import CardShow from './components/CardShowPage';
 import './index.css'
 import NavFilterBar from './components/NavFilterBar';
+import BottomLinks from './components/BottomLinks';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/cards" component={CardIndex} />
         <Route exact path="/cards/:cardId" component={CardShow} />
       </Switch>
+      <BottomLinks />
     </>
   );
 }
