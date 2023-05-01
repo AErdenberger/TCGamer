@@ -31,8 +31,8 @@ export const fetchCards = () => async dispatch => {
 export const fetchCard = (cardId) => async dispatch => {
     let res = await fetch(`/api/cards/${cardId}`);
     if (res.ok){
-        let data = await res.json();
-        return dispatch(receiveCard(data))
+        let { card } = await res.json();
+        return dispatch(receiveCard(card))
     }
 }
 

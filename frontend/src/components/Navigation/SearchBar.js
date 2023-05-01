@@ -1,20 +1,17 @@
 import React, {useState} from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getCards, fetchCards } from "../../store/card";
+import { getSearchBarText, setSearchBarText } from "../../store/searchBar";
 
 const SearchBar = () => {
     const [searchInput, setSearchInput] = useState("");
-
+    const dispatch = useDispatch();
+    
     const handleChange = (e) => {
         e.preventDefault();
         setSearchInput(e.target.value);
+        dispatch(setSearchBarText(e.target.value));
     };
-
-    const cards = useSelector(getCards);
-
-    if (searchInput.length > 0) {
-
-    }
 
     return (
         <div>
