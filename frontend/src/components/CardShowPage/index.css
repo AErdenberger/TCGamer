@@ -1,0 +1,26 @@
+.CardShowImage {
+    height: 400px;
+    margin: 15px;
+}
+
+.CardShowData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.CardShowName {
+    font-size: largest;
+}
+
+.TheWholeCardShow {
+    display: flex;
+    align-content: stretch;
+}
+
+.LinkBack {
+    display: flex;
+    justify-content: flex-start;
+    align-self: flex-end;
+}

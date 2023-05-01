@@ -7,7 +7,11 @@ class Api::CardsController < ApplicationController
     end
 
     def index
-        @cards = Card.all
+        if params[:card_game_name]
+            @cards = Card.where( game: params[:card_game_name])
+        else
+            @cards = Card.all
+        end
         render :index
     end
 

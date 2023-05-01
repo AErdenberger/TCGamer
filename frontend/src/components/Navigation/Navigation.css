@@ -15,3 +15,18 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+.auth {
+    margin: 5px;
+    border: solid black 2px;
+    border-radius: 8px;
+    background-color: #0835db;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px;
+}
+
+.auth a {
+    margin: 5px;
+}

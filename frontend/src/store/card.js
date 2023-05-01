@@ -28,6 +28,14 @@ export const fetchCards = () => async dispatch => {
     }
 }
 
+export const fetchCardsByGameName = (cardGameName) => async dispatch => {
+    let res = await fetch(`/api/cards?cardGameName=${cardGameName}`);
+    if (res.ok){
+        let { cards } = await res.json();
+        return dispatch(receiveCards(cards))
+    }
+}
+
 export const fetchCard = (cardId) => async dispatch => {
     let res = await fetch(`/api/cards/${cardId}`);
     if (res.ok){
@@ -40,7 +48,7 @@ const cardsReducer = (state = {}, action) => {
     let nextState = {...state};
     switch(action.type){
         case RECEIVE_CARDS:
-            return {...nextState, ...action.cards}
+            return  {...action.cards}
         case RECEIVE_CARD:
             return {...nextState, [action.card.id]: action.card}
         default:

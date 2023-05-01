@@ -1,9 +1,10 @@
 .cardTile {
+    display: flex;
     border: 1px solid lightgrey;
     border-radius: 8px;
-    margin: 5px;
-    width: 400px;
-    height: 300px;
+    margin: 2px;
+    width: 425px;
+    height: 280px;
 }
 
 .cardTile:hover {
@@ -12,30 +13,37 @@
 
 .cardImages {
     height: 250px;
+    width: 200px;
     margin: 10px;
 }
 
 .cardName {
-    font-size: medium;
-    overflow-wrap: break-word;
+    font-size: medium;  
     display: flex;
-    flex-wrap: wrap;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: baseline;
-    margin-right: 15px;
+    margin-left: 5px;
 }
 
-/* .cardTile li {
+.CardTileData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 75px;
 }
 
-.cardTile > ul {
-} */
+.CardNameAndData {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
 
 .AllTheCards {
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
-    justify-content: space-around;
+    justify-content: center;
     height: 100%;
     width: 100%;
 }

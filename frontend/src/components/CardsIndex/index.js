@@ -1,16 +1,22 @@
 import React, { useEffect } from "react";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { getCards, fetchCards } from "../../store/card";
+import { getCards, fetchCards, fetchCardsByGameName } from "../../store/card";
 import CardTile from "./CardTile";
 import './cardImage.css';
 
 function CardIndex(props){
     const dispatch = useDispatch();
     const cards = useSelector(getCards);
+    const { cardGameName } = useParams();
 
     useEffect(() => {
-        dispatch(fetchCards(cards));
-    }, [dispatch])
+        if (cardGameName){
+            dispatch(fetchCardsByGameName(cardGameName))
+        } else {
+            dispatch(fetchCards(cards));
+        }
+    }, [dispatch, cardGameName])
 
     
     function filterCards(cards, isOnlyPokemon) {
@@ -30,21 +36,6 @@ function CardIndex(props){
             }
         });
     }
-    /**
-     * Goal: Create a checkbox, that when selected, only shows Pokemon cards
-     * 
-     * UI component to check and uncheck this box
-     * 
-     * setter action for the select  box values
-     * 
-     * reducer for the select box values
-     * 
-     * selector for the checkbox values
-     * 
-     * map game checkbox state into props, so that we have the values and component re-renders on change 
-     * 
-     * in filterCards method, if one of the game checkboxes is true, filter down to just those cards as well 
-     */
     
     return (
         <div>

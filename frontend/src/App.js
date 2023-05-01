@@ -6,11 +6,13 @@ import Navigation from './components/Navigation';
 import CardIndex from './components/CardsIndex';
 import CardShow from './components/CardShowPage';
 import './index.css'
+import NavFilterBar from './components/NavFilterBar';
 
 function App() {
   return (
     <>
       <Navigation />
+      <NavFilterBar />
       <Switch>
         <Route path="/login">
           <LoginFormPage />
@@ -18,6 +20,7 @@ function App() {
         <Route path="/signup">
           <SignUpFormPage />
         </Route>
+        <Route exact path="/cards/category/:cardGameName" component={CardIndex} />
         <Route exact path="/cards" component={CardIndex} />
         <Route exact path="/cards/:cardId" component={CardShow} />
       </Switch>

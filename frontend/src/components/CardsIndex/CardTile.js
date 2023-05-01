@@ -21,12 +21,14 @@ function CardTile(props) {
                 <div>
                     <img className="cardImages" src={card.photo}/>
                 </div>
-                <h1 className="cardName">{card.name}</h1>
-                <ul>
-                    <li>{card.game}</li>
-                    <li>{card.set}</li>
-                    <li>{card.price}</li>
-                </ul>
+                <div className="CardNameAndData">
+                    <h1 className="cardName">{card.name}</h1>
+                    <ul className="CardTileData">
+                        <li>{card.game}</li>
+                        <li>{card.set}</li>
+                        <li>{card.price}</li>
+                    </ul>
+                </div>
             </div>
         </Link>
     )
