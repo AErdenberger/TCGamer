@@ -9,7 +9,7 @@
 ApplicationRecord.transaction do 
   require "open-uri"
 
-    puts "Destroying tables..."
+    puts "Destroying Users..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
   
@@ -35,6 +35,12 @@ ApplicationRecord.transaction do
     end
 
   end
+  puts "Destroying Cards..."
+  Card.destroy_all
+
+  puts "Resetting Card Ids..."
+  ApplicationRecord.connection.reset_pk_sequence!('cards')
+
   puts "Creating MTG Cards..."
 
   MTG_card1 = Card.create!({
