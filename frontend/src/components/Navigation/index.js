@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from './ProfileButton';
 import SearchBar from "./SearchBar";
@@ -7,6 +7,7 @@ import './Navigation.css';
 
 function Navigation() {
     const sessionUser = useSelector(state => state.session.user);
+    const { pathname } = useLocation();
 
     let sessionLinks;
     if (sessionUser) {
@@ -16,8 +17,8 @@ function Navigation() {
     } else {
         sessionLinks = (
             <>
-                <NavLink to="/login" className="auth">Log In</NavLink>
-                <NavLink to="/Signup" className="auth">Sign Up</NavLink>
+                {pathname.includes("login") ? null : <NavLink to="/login" className="auth">Log In</NavLink>}
+                {pathname.includes("Signup") ? null : <NavLink to="/Signup" className="auth">Sign Up</NavLink>}  
             </>
         );
     }
