@@ -1,0 +1,24 @@
+#linkedin {
+	width: 80px;
+	height: 80px;
+}
+
+#github{
+	width: 80px;
+	height: 80px;
+}
+
+.BottomBar {
+    background-color: black;
+}
+
+.BottomBar p {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.BottomBar a {
+    display: flex;
+    justify-content: center;
+}

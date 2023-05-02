@@ -30,21 +30,29 @@ function LoginFormPage() {
             });
     }
 
+    const handleDemoUserClick = (e) => {
+        e.preventDefault();
+        return dispatch(sessionActions.login({credential: 'Demo-lition', password: 'password'}))
+      }
+
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map(error =>
-                    <li key={error}>{error}</li>)}
-            </ul>
-            <h1>Log In</h1>
-            <label>Username or Email
-                <input id='credentials' type="text" value={credential} onChange={(e) => setCredential(e.target.value)} required />
-            </label>
-            <label>Password
-                <input id='credentials' type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
-            </label>
-            <button className="login" type="submit">Log In</button>
-        </form>
+        <div className="LoginForm">
+            <form onSubmit={handleSubmit}>
+                <ul>
+                    {errors.map(error =>
+                        <li key={error}>{error}</li>)}
+                </ul>
+                <h1>Log In</h1>
+                <label>Username or Email
+                    <input id='credentials' type="text" value={credential} onChange={(e) => setCredential(e.target.value)} required />
+                </label>
+                <label>Password
+                    <input id='credentials' type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                </label>
+                <button className="login" type="submit">Log In</button>
+                <button className='login' id="DemoUser" type='submit' onClick={(e) => handleDemoUserClick(e)}>Demo User</button>
+            </form>
+        </div>
     );
 }
 

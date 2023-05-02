@@ -1,9 +1,13 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import sessionReducer from './session';
+import cardsReducer from './card';
+import searchBarTextReducer from './searchBar';
 
 export const rootReducer = combineReducers({
-    session: sessionReducer
+    session: sessionReducer,
+    cards: cardsReducer,
+    searchBar: searchBarTextReducer
 });
 
 let enhancer;

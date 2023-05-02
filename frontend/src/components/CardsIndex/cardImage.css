@@ -1,0 +1,49 @@
+.cardTile {
+    display: flex;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    margin: 2px;
+    width: 425px;
+    height: 280px;
+}
+
+.cardTile:hover {
+    background-color: rgb(231, 230, 230);
+}
+
+.cardImages {
+    height: 250px;
+    width: 200px;
+    margin: 10px;
+}
+
+.cardName {
+    font-size: medium;  
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin-left: 5px;
+}
+
+.CardTileData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 75px;
+}
+
+.CardNameAndData {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.AllTheCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
