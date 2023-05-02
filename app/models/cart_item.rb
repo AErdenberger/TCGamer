@@ -13,7 +13,7 @@ class CartItem < ApplicationRecord
 
     validates :card_id, presence: true
     validates :buyer_id, presence: true
-    validates :quantity, numercality: {only_integer: true}
+    validates :quantity, numericality: {only_integer: true}
 
     belongs_to :buyer,
     foreign_key: :buyer_id,

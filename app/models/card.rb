@@ -33,4 +33,6 @@ class Card < ApplicationRecord
     validates :price, numericality: true, format: { with: /\A\d{1,6}(\.\d{0,2})?$\z/ }
 
     has_one_attached :photo
+
+    has_many :cart_items
 end

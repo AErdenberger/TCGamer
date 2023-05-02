@@ -22,6 +22,8 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
+  has_many :cart_items
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     if (user&.authenticate(password))
