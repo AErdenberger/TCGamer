@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
@@ -15,6 +15,7 @@ function App() {
       <Navigation />
       <NavFilterBar />
       <Switch>
+        <Route exact path="/" />
         <Route path="/login">
           <LoginFormPage />
         </Route>
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/cards/category/:cardGameName" component={CardIndex} />
         <Route exact path="/cards" component={CardIndex} />
         <Route exact path="/cards/:cardId" component={CardShow} />
+        <Redirect to="/" />
       </Switch>
       <BottomLinks />
     </>
