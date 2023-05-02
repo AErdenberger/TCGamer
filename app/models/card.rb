@@ -8,9 +8,9 @@
 #  set        :string           not null
 #  rarity     :string           not null
 #  foil       :boolean          not null
-#  price      :float            not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  price      :decimal(8, 2)
 #
 class Card < ApplicationRecord
 

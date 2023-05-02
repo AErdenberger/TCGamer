@@ -4,8 +4,6 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function BottomLinks() {
 
-    const history = useHistory();
-
     return (
         <div className="BottomBar">
             <div>
