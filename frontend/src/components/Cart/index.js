@@ -25,8 +25,27 @@ function Cart() {
         )
     }
 
+    let totalPrice = 0;
+    cartItems.forEach((item) => {
+        if (item) {
+            let card = cardsInCart[item.cardId];
+            totalPrice += (card.price * item.quantity);
+        }
+    });
+
+    let cartTotal = 0;
+    cartItems.forEach(item => {
+        if (item) {
+            cartTotal += item.quantity;
+        }
+    })
+
     return (
-        <div>
+        <div className="cartIndex">
+            <div className="cartInfo">
+                <h1>Your Cart Contains {cartTotal} Items</h1>
+                <h1>Total Price: {totalPrice.toFixed(2)}</h1>
+            </div>
             <ul>
                 {cartItems.map(cartItem => <CartItem key={cartItem.id} cartItem={cartItem} card={cardsInCart[cartItem.cardId]}/>)}
             </ul>

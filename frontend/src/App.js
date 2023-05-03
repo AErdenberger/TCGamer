@@ -9,6 +9,7 @@ import './index.css'
 import NavFilterBar from './components/NavFilterBar';
 import BottomLinks from './components/BottomLinks';
 import Cart from './components/Cart';
+import SplashPage from './components/SplashPage';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <Navigation />
       <NavFilterBar />
       <Switch>
-        <Route exact path="/" />
+        <Route exact path="/" component={SplashPage}/>
         <Route path="/login">
           <LoginFormPage />
         </Route>

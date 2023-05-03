@@ -86,7 +86,7 @@ const cartItemReducer = (state = {}, action) => {
         case RECEIVE_CARTITEM:
             return {...nextState, [action.payload.cartItem.id]: action.payload.cartItem}
         case REMOVE_CARTITEM:
-            delete nextState[action.payload.cartItem]
+            delete nextState[action.payload]
             return {...nextState}
         default:
             return state;

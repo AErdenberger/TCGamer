@@ -41,14 +41,14 @@ function CartItem({ cartItem, card }) {
                 <div className="CartItem">
                     <div className="CartInfo">
                         <div className="cartItemName">{card?.name}: {cartItem?.quantity}</div>
-                        <div className="cartItemPrice">Total Price: {cartItem?.quantity * card?.price}</div>
+                        <div className="cartItemPrice">Total Price: {(cartItem?.quantity * card?.price).toFixed(2)}</div>
                         <div className="cartItemPhoto">
                             <img src={card?.photo}></img>
                         </div>
                     </div>
                     <div className="cartButtons">
-                        <button className="Clicky" onClick={(e) => handlePlus(e)}>+</button>
-                        <button className="Clicky" onClick={(e) => handleMinus(e)}>-</button>
+                        <button className="Clicky" id="plus" onClick={(e) => handlePlus(e)}>+</button>
+                        <button className="Clicky" id="minus" onClick={(e) => handleMinus(e)}>-</button>
                         <button className="Clicky" onClick={() => dispatch(deleteCartItem(cartItem?.id))}>Clear Item</button>
                     </div>
                 </div>
