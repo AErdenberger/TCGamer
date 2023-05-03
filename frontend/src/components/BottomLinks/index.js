@@ -7,7 +7,7 @@ function BottomLinks() {
     return (
         <div className="BottomBar">
             <div>
-                <p>This clone is for educational purposes only.</p>
+                <p>This clone was created by Alex Erdenberger for educational purposes only.</p>
                 <p>Please do not put any sensitive information.</p>
             </div>
             <div>

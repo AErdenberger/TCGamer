@@ -27,6 +27,10 @@
     padding: 8px;
 }
 
+.auth:hover {
+    background-color: #244cdc;
+}
+
 .auth a {
     margin: 5px;
 }

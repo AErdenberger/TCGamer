@@ -1,3 +1,4 @@
+import { RECEIVE_CARTITEMS } from "./cart";
 
 export const RECEIVE_CARDS = 'cards/RECEIVE_CARDS';
 export const RECEIVE_CARD = 'cards/RECEIVE_CARD';
@@ -51,6 +52,8 @@ const cardsReducer = (state = {}, action) => {
             return  {...action.cards}
         case RECEIVE_CARD:
             return {...nextState, [action.card.id]: action.card}
+        case RECEIVE_CARTITEMS:
+            return {...nextState, ...action.payload.cards}
         default:
             return state;
     }

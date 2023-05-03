@@ -26,7 +26,7 @@ function CardTile(props) {
                     <ul className="CardTileData">
                         <li>{card.game}</li>
                         <li>{card.set}</li>
-                        <li>{card.price}</li>
+                        <li>Price: ${card.price}</li>
                     </ul>
                 </div>
             </div>

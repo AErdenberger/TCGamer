@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import cardsReducer from './card';
 import searchBarTextReducer from './searchBar';
+import cartItemReducer from './cart';
 
 export const rootReducer = combineReducers({
     session: sessionReducer,
     cards: cardsReducer,
-    searchBar: searchBarTextReducer
+    searchBar: searchBarTextReducer,
+    cartItems: cartItemReducer
 });
 
 let enhancer;

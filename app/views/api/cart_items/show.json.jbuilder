@@ -4,5 +4,5 @@ end
 
 json.card do
     json.extract! @cart_item.card, :id, :name, :price 
-    json.photo @cart_item.card.photo.url
+    # json.photo @cart_item.card.photo.url
 end

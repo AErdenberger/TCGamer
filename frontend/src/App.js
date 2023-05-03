@@ -8,6 +8,7 @@ import CardShow from './components/CardShowPage';
 import './index.css'
 import NavFilterBar from './components/NavFilterBar';
 import BottomLinks from './components/BottomLinks';
+import Cart from './components/Cart';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/cards/category/:cardGameName" component={CardIndex} />
         <Route exact path="/cards" component={CardIndex} />
         <Route exact path="/cards/:cardId" component={CardShow} />
+        <Route exact path="/cart" component={Cart} />
         <Redirect to="/" />
       </Switch>
       <BottomLinks />
