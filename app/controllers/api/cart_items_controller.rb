@@ -1,4 +1,5 @@
 class Api::CartItemsController < ApplicationController
+    include ActiveStorage::SetCurrent
 
     wrap_parameters include: CartItem.attribute_names + ["buyerId", "cardId"]
 

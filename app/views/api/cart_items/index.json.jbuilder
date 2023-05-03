@@ -17,7 +17,7 @@ json.cards do
                 :id,
                 :name,
                 :price
-                # json.photo cart_item.card.photo.url
+                json.photo cart_item.card.photo.url
         end
     end
 end

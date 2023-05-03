@@ -13,10 +13,10 @@ function CartItem({ cartItem, card }) {
     return (
         <div>
             <li>
-                <div className="cartItemName">{card.name}: {cartItem.quantity}</div>
+                <div className="cartItemName">{card?.name}: {cartItem?.quantity}</div>
                 <div></div>
                 <div className="cartItemPhoto">
-                    <img src={card.photo}></img>
+                    <img src={card?.photo}></img>
                 </div>
                 <div className="cartItems">
                     <button onClick={() => setCount(count + 1)}>+</button>
