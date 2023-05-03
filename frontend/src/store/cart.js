@@ -16,7 +16,7 @@ export const receiveCartItem = cartItem => ({
 
 export const removeCartItem = cartItemId => ({
     type: REMOVE_CARTITEM,
-    cartItemId
+    payload: cartItemId
 })
 
 export const getCartItem = (itemId) => (state) => {
@@ -72,7 +72,7 @@ export const updateCartItem = (item) => async dispatch => {
 }
 
 export const deleteCartItem = (cartItemId) => async dispatch => {
-    await csrfFetch (`/api/repots/${cartItemId}`, {
+    await csrfFetch (`/api/cart_items/${cartItemId}`, {
         method: 'DELETE'
     })
     return dispatch(removeCartItem(cartItemId))
@@ -86,8 +86,8 @@ const cartItemReducer = (state = {}, action) => {
         case RECEIVE_CARTITEM:
             return {...nextState, [action.payload.cartItem.id]: action.payload.cartItem}
         case REMOVE_CARTITEM:
-            delete nextState[action.cartItem]
-            return nextState
+            delete nextState[action.payload.cartItem]
+            return {...nextState}
         default:
             return state;
     }

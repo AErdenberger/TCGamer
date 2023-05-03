@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getCartItems } from "../../store/cart";
+import { fetchCartItems, getCartItems } from "../../store/cart";
 import CartItem from "./CartItem";
+import "./index.css"
+import { useEffect } from "react";
+
 
 
 function Cart() {
@@ -9,10 +12,15 @@ function Cart() {
     const cartItems = useSelector(getCartItems)
     const cardsInCart = useSelector(state => state.cards)
 
+    useEffect(() => {
+        dispatch(fetchCartItems)
+    }, [dispatch, cartItems])
+
     if (!cartItems || !cartItems.length) {
         return (
-            <div>
-                The Cart is Empty.
+            <div className="EmptyCart">
+                <img className="EmptyCartImage" src="/EmptyCart.png"></img>
+                <h1>Your Cart is Empty.</h1>
             </div>
         )
     }

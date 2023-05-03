@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { removeCartItem } from "../../store/cart";
+import { deleteCartItem, removeCartItem, updateCartItem } from "../../store/cart";
+import "./index.css";
 
 function CartItem({ cartItem, card }) {
     const dispatch = useDispatch();
@@ -10,18 +11,46 @@ function CartItem({ cartItem, card }) {
         setCount(cartItem.quantity);
     }, [count]);
 
+    const handlePlus = (e) => {
+        e.preventDefault();
+        let newCartItem = {};
+        newCartItem.id = cartItem.id;
+        newCartItem.buyerId = cartItem.buyerId;
+        newCartItem.cardId = card.id;
+        newCartItem.quantity = ++cartItem.quantity;
+        return dispatch(updateCartItem(newCartItem))
+    }
+
+    const handleMinus = (e) => {
+        e.preventDefault();
+        let newCartItem = {};
+        if (cartItem?.quantity === 1) {
+            return dispatch(deleteCartItem(cartItem?.id))
+        } else {
+            newCartItem.id = cartItem.id;
+            newCartItem.buyerId = cartItem.buyerId;
+            newCartItem.cardId = card.id;
+            newCartItem.quantity = --cartItem.quantity;
+            return dispatch(updateCartItem(newCartItem))
+        }
+    }
+
     return (
-        <div>
+        <div className="TheWholeCart">
             <li>
-                <div className="cartItemName">{card?.name}: {cartItem?.quantity}</div>
-                <div></div>
-                <div className="cartItemPhoto">
-                    <img src={card?.photo}></img>
-                </div>
-                <div className="cartItems">
-                    <button onClick={() => setCount(count + 1)}>+</button>
-                    <button onClick={() => setCount(count - 1)}>-</button>
-                    <button onClick={() => dispatch(removeCartItem(cartItem?.id))}>Clear Item</button>
+                <div className="CartItem">
+                    <div className="CartInfo">
+                        <div className="cartItemName">{card?.name}: {cartItem?.quantity}</div>
+                        <div className="cartItemPrice">Total Price: {cartItem?.quantity * card?.price}</div>
+                        <div className="cartItemPhoto">
+                            <img src={card?.photo}></img>
+                        </div>
+                    </div>
+                    <div className="cartButtons">
+                        <button className="Clicky" onClick={(e) => handlePlus(e)}>+</button>
+                        <button className="Clicky" onClick={(e) => handleMinus(e)}>-</button>
+                        <button className="Clicky" onClick={() => dispatch(deleteCartItem(cartItem?.id))}>Clear Item</button>
+                    </div>
                 </div>
             </li>
         </div>
