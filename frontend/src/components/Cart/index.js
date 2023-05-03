@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCartItems, getCartItems } from "../../store/cart";
+import { deleteCartItem, fetchCartItems, getCartItems, removeCartItem } from "../../store/cart";
 import CartItem from "./CartItem";
 import "./index.css"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -11,18 +11,28 @@ function Cart() {
     const dispatch = useDispatch();
     const cartItems = useSelector(getCartItems)
     const cardsInCart = useSelector(state => state.cards)
+    const [checkedOut, setCheckedOut] = useState(false);
 
     useEffect(() => {
         dispatch(fetchCartItems)
     }, [dispatch, cartItems])
 
     if (!cartItems || !cartItems.length) {
-        return (
-            <div className="EmptyCart">
-                <img className="EmptyCartImage" src="/EmptyCart.png"></img>
-                <h1>Your Cart is Empty.</h1>
-            </div>
-        )
+        if(checkedOut){
+            return(
+                <div>
+                    <h1>You have successfully Checkedout! Enjoy your cards!</h1>
+                </div>
+            )
+        } else {
+            return (
+                <div className="EmptyCart">
+                    <img className="EmptyCartImage" src="/EmptyCart.png"></img>
+                    <h1>Your Cart is Empty.</h1>
+                </div>
+            )
+        }
+        
     }
 
     let totalPrice = 0;
@@ -40,6 +50,14 @@ function Cart() {
         }
     })
 
+    const handleCheckout = (e) => {
+        e.preventDefault();
+        cartItems.forEach(item => {
+            dispatch(deleteCartItem(item.id))
+        })
+        setCheckedOut(true);
+    }
+
     return (
         <div className="cartIndex">
             <div className="cartInfo">
@@ -49,6 +67,7 @@ function Cart() {
             <ul>
                 {cartItems.map(cartItem => <CartItem key={cartItem.id} cartItem={cartItem} card={cardsInCart[cartItem.cardId]}/>)}
             </ul>
+            <button className="Clicky" id="checkOut" onClick={(e) => handleCheckout(e)}>Checkout</button>
         </div>
     )
 }

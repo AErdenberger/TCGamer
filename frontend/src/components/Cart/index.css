@@ -17,7 +17,7 @@
     color: #fff;
     font-size: 18px;
     font-weight: 600;
-    width: 80%;
+    width: 100%;
     padding: 14px;
     border: none;
     margin: 10px 0;
@@ -75,4 +75,19 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
+}
+
+#checkOut {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.cartIndex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
 }

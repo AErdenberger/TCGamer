@@ -4,12 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import ProfileButton from './ProfileButton';
 import SearchBar from "./SearchBar";
 import './Navigation.css';
-import { fetchCartItems } from "../../store/cart";
+import { fetchCartItems, getCartItems } from "../../store/cart";
 
 function Navigation() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const { pathname } = useLocation();
+    const cartItems = useSelector(getCartItems)
 
     let sessionLinks;
     if (sessionUser) {
@@ -25,12 +26,22 @@ function Navigation() {
         );
     }
 
+    let cartTotal = 0;
+    cartItems.forEach(item => {
+        if (item) {
+            cartTotal += item.quantity;
+        }
+    })
+
     let cartButton;
     if (sessionUser) {
         cartButton = (
-            <NavLink exact to="/cart">
-                    <i className="fa-solid fa-cart-shopping"></i>
-            </NavLink>
+            <div>
+                <NavLink exact to="/cart">
+                        <i className="fa-solid fa-cart-shopping fa-2xl"></i>
+                </NavLink>
+                <div className="cartTotal">{cartTotal}</div>
+            </div>
         )
     }
 

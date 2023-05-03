@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    height: 125px;
 }
 
 #SearchBar {
@@ -33,4 +34,20 @@
 
 .auth a {
     margin: 5px;
+}
+
+.cartTotal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    border: solid black 2px;
+    border-radius: 100%;
+    background-color: #0835db;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 8px;
+    height: 20px;
+    width: 20px;
 }
