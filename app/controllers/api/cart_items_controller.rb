@@ -1,4 +1,7 @@
 class Api::CartItemsController < ApplicationController
+    include ActiveStorage::SetCurrent
+
+    wrap_parameters include: CartItem.attribute_names + ["buyerId", "cardId"]
 
     def create
         @cart_item = CartItem.new(cart_item_params)
@@ -10,7 +13,8 @@ class Api::CartItemsController < ApplicationController
       end
 
     def index 
-        @cart_items = current_user.cart_items.includes(:card)
+        @cart_item = CartItem.first
+        @cart_items = User.first.cart_items.includes(:card)
         render :index
     end
 

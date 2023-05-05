@@ -15,6 +15,8 @@ function CardTile(props) {
 
     }
 
+    let cardPrice = parseFloat(card.price).toFixed(2);
+
     return (
         <Link to={`/cards/${card.id}`}>
             <div className="cardTile" >
@@ -26,7 +28,7 @@ function CardTile(props) {
                     <ul className="CardTileData">
                         <li>{card.game}</li>
                         <li>{card.set}</li>
-                        <li>{card.price}</li>
+                        <li>Price: ${cardPrice}</li>
                     </ul>
                 </div>
             </div>

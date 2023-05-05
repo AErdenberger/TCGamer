@@ -6,7 +6,6 @@
 .CardShowData {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
 
@@ -23,4 +22,28 @@
     display: flex;
     justify-content: flex-start;
     align-self: flex-end;
+}
+
+.AddCardtoCart {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+
+.AddtoCartButton {
+    border-radius: 8px;
+    background-color: #0835db;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    width: 45%;
+    height: 45%;
+    padding: 14px;
+    border: none;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.AddtoCartButton:hover {
+    background-color: #244cdc;
 }

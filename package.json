@@ -22,5 +22,8 @@
   "homepage": "https://github.com/AErdenberger/TCGamer#readme",
   "engines": {
     "node": "16.x"
+  },
+  "dependencies": {
+    "react-slideshow-image": "^4.2.1"
   }
 }
