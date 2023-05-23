@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :cards, only: [:show, :index]
     resources :cart_items, only: [:create, :destroy, :update, :index]
-    resources :comments, only: [:create, :update, :destroy]
+    resources :comments, only: [:create, :update, :destroy, :index]
   end
   
   get '*path', to: "static_pages#frontend_index", constraints: -> (req) {!req.xhr? && req.format.html?}
