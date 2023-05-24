@@ -6,17 +6,17 @@ export const REMOVE_COMMENT = 'comments/REMOVE_COMMENT';
 
 export const receiveComments = comments => ({
     type: RECEIVE_COMMENTS,
-    comments
+    payload: comments
 })
 
 export const receiveComment = comment => ({
     type: RECEIVE_COMMENT,
-    comment
+    payload: comment
 })
 
 export const removeComment = commentId => ({
     type: REMOVE_COMMENT,
-    commentId
+    payload: commentId
 })
 
 export const getComment = (commentId) => (state) => {
@@ -36,7 +36,7 @@ export const fetchComments = () => async dispatch => {
 }
 
 export const fetchCardComments = (cardId) => async dispatch => {
-    let res = await csrfFetch(`/api/comments/${cardId}`)
+    let res = await csrfFetch(`/api/comments?cardId=${cardId}`)
     if(res.ok){
         let data = await res.json();
         return dispatch(receiveComments(data))
@@ -44,7 +44,7 @@ export const fetchCardComments = (cardId) => async dispatch => {
 }
 
 export const fetchComment = (commentId) => async dispatch => {
-    let res = await csrfFetch(`/api/cart_items/${commentId}`);
+    let res = await csrfFetch(`/api/comments/${commentId}`);
     if(res.ok){
         let data = await res.json();
         return dispatch(receiveComment(data))

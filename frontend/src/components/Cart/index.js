@@ -21,7 +21,7 @@ function Cart() {
         if(checkedOut){
             return(
                 <div>
-                    <h1>You have successfully Checkedout! Enjoy your cards!</h1>
+                    <h1>You have successfully Checked Out! Enjoy your cards!</h1>
                 </div>
             )
         } else {

@@ -27,6 +27,15 @@ class Api::CommentsController < ApplicationController
         end
     end
 
+    def index
+        if params[:card_id]
+            @comments = Comment.where(card_id: params[:card_id])
+        else
+            @comments = Comment.all
+        end
+        render :index
+    end
+
     private
     def comment_params
         params.require(:comment).permit(:commenter_id, :card_id, :body)
