@@ -1,18 +1,21 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./Comments.css";
-import { getUser } from "../../store/user";
+import { fetchUsers, getUser } from "../../store/user";
 
 
 function CommentBox({comment, user}) {
-    const sessionUser = useSelector(state => state.session.user)
+    const sessionUser = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
     
     console.log(user);
-
-    const username = useSelector(getUser(comment.commenterId))
-
-    console.log(username);
-
+    
+    useEffect(() => {
+        dispatch(fetchUsers);
+    }, [dispatch])
+    
+    const users = useSelector(state => state.users);
+    
     let returnButton;
     if(sessionUser){
         if(sessionUser._id === comment.commenterId){
