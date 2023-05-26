@@ -22,18 +22,18 @@ export const getUsers = () => (state) => {
 }
 
 export const fetchUsers = () => async dispatch => {
-    let res = await fetch('/api/users');
+    let res = await csrfFetch('/api/users');
     if (res.ok){
-        let { users } = await res.json();
-        return dispatch(receiveUsers(users))
+        let data = await res.json();
+        return dispatch(receiveUsers(data))
     }
 }
 
 export const fetchUser = (userId) => async dispatch => {
-    let res = await fetch(`/api/cards/${userId}`);
+    let res = await csrfFetch(`/api/users/${userId}`);
     if (res.ok){
-        let { user } = await res.json();
-        return dispatch(receiveUser(user))
+        let data = await res.json();
+        return dispatch(receiveUser(data))
     }
 }
 

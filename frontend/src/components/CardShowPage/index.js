@@ -6,6 +6,7 @@ import { createCartItem, getCartItems, updateCartItem } from "../../store/cart";
 import "./index.css"
 import { fetchCardComments, getComments } from "../../store/comment";
 import CommentBox from "../Comments/CommentBox";
+import { fetchUsers } from "../../store/user";
 
 function CardShow(){
     const cartItems = useSelector(getCartItems);
@@ -15,9 +16,8 @@ function CardShow(){
     const card = useSelector(getCard(cardId))
     const cardComments = useSelector(state => state.comments)
     const commentsArr = Object.values(cardComments);
+    const users = useSelector(state => state.users);
     // const cardComments = useSelector(getComments());
-
-    console.log(commentsArr);
 
     useEffect(() => {
         dispatch(fetchCard(cardId))
@@ -27,17 +27,11 @@ function CardShow(){
         dispatch(fetchCardComments(cardId))
     }, [dispatch, cardId])
 
-    const commentBox = () => {
-        return (
-            <div className="CommentsContainer">
-                <ul className="AlltheComments">
-                    {cardComments?.map(comment => {
-                        return <CommentBox key={comment?.id} user={comment?.commenterId} card={cardId}/>
-                    })}
-                </ul>
-            </div>
-        )
-    }
+    useEffect(() => {
+        dispatch(fetchUsers())
+    }, [dispatch])
+
+    console.log(users);
 
     const handleClick = () => {
         if (sessionUser) {
@@ -79,7 +73,7 @@ function CardShow(){
                 <div className="AllTheComments">
                     <ul className="CommentsList">
                         {commentsArr.map(comment => {
-                            return <CommentBox key={comment.id} comment={comment} user={comment?.commenterId} card={cardId}/>
+                            return <CommentBox key={comment.id} comment={comment} user={users[comment?.commenterId]} card={cardId}/>
                         })}
                     </ul>
                 </div>
