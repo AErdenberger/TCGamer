@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCard, fetchCard } from "../../store/card";
 import { createCartItem, getCartItems, updateCartItem } from "../../store/cart";
 import "./index.css"
+import { fetchCardComments, getComments } from "../../store/comment";
+import CommentBox from "../Comments/CommentBox";
 
 function CardShow(){
     const cartItems = useSelector(getCartItems);
@@ -11,10 +13,31 @@ function CardShow(){
     const { cardId } = useParams();
     const dispatch = useDispatch();
     const card = useSelector(getCard(cardId))
+    const cardComments = useSelector(state => state.comments)
+    const commentsArr = Object.values(cardComments);
+    // const cardComments = useSelector(getComments());
+
+    console.log(commentsArr);
 
     useEffect(() => {
         dispatch(fetchCard(cardId))
     }, [cardId, dispatch])
+
+    useEffect(() => {
+        dispatch(fetchCardComments(cardId))
+    }, [dispatch, cardId])
+
+    const commentBox = () => {
+        return (
+            <div className="CommentsContainer">
+                <ul className="AlltheComments">
+                    {cardComments?.map(comment => {
+                        return <CommentBox key={comment?.id} user={comment?.commenterId} card={cardId}/>
+                    })}
+                </ul>
+            </div>
+        )
+    }
 
     const handleClick = () => {
         if (sessionUser) {
@@ -52,6 +75,15 @@ function CardShow(){
                 </div>
             </div>
             <Link className="LinkBack" to='/cards'>Return to Cards Page</Link>
+            <div className="CommentsContainer">
+                <div className="AllTheComments">
+                    <ul className="CommentsList">
+                        {commentsArr.map(comment => {
+                            return <CommentBox key={comment.id} comment={comment} user={comment?.commenterId} card={cardId}/>
+                        })}
+                    </ul>
+                </div>
+            </div>
         </div>
     )
 

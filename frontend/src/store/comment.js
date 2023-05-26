@@ -20,7 +20,7 @@ export const removeComment = commentId => ({
 })
 
 export const getComment = (commentId) => (state) => {
-    return state.comment ? state.cartItem[commentId] : null;
+    return state.comment ? state.comment[commentId] : null;
 }
 
 export const getComments = (state) => {
@@ -75,7 +75,7 @@ export const updateComment = (comment) => async dispatch => {
     });
     if (res.ok) {
         let data = await res.json();
-        return dispatch(receiveCartItem(data))
+        return dispatch(receiveComment(data))
     }
 }
 
@@ -83,7 +83,7 @@ export const deleteComment = (commentId) => async dispatch => {
     await csrfFetch (`/api/comments/${commentId}`, {
         method: 'DELETE'
     })
-    return dispatch(removeC(cartItemId))
+    return dispatch(removeComment(commentId))
 }
 
 const commentsReducer = (state = {}, action) => {

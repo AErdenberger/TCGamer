@@ -75,3 +75,13 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+a{
+  text-decoration: none;
+  color: black;
+  }
+  
+a:visited{
+  text-decoration: none;
+  color: black;
+}

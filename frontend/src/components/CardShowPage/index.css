@@ -47,3 +47,21 @@
 .AddtoCartButton:hover {
     background-color: #244cdc;
 }
+
+.AllTheComments{
+    background-color: lightblue;
+    border: solid black 1px;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+}
+
+.CommentsList{
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    text-align: center;
+}
