@@ -9,6 +9,12 @@
 ApplicationRecord.transaction do 
   require "open-uri"
 
+    puts "Destroying Comments..."
+    Comment.destroy_all
+
+    puts "Resetting Comment Ids..."
+    ApplicationRecord.connection.reset_pk_sequence!('comments')
+
     puts "Destroying Users..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
@@ -496,5 +502,253 @@ ApplicationRecord.transaction do
     price: "1.16"
   })
   PKMN_card18.photo.attach(io: URI.open("https://tcgamer-seeds.s3.us-west-1.amazonaws.com/Pokemon_Cards/SWSH12PT5_EN_97.png"),filename: "Zamazenta.png")
-    
+
+  puts "Creating Comments..."
+
+  Comment1 = Comment.create!({
+    card_id: 1,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "This'll go great in my cube!"
+  })
+
+  Comment2 = Comment.create!({
+    card_id: 2,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "This'll also go great in my cube!"
+  })
+
+  Comment3 = Comment.create!({
+    card_id: 3,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "So many cards for my cube!"
+  })
+
+  Comment4 = Comment.create!({
+    card_id: 4,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "I just got this for my Animar deck! I can't wait to test it out!"
+  })
+
+  Comment5 = Comment.create!({
+    card_id: 5,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "This is such a sad story beat, Wrenn didn't deserve to die T_T"
+  })
+
+  Comment6 = Comment.create!({
+    card_id: 6,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Fblthp is always in the most strange of places."
+  })
+
+  Comment7 = Comment.create!({
+    card_id: 7,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "The incdubate mechanic sure is interesting."
+  })
+
+  Comment8 = Comment.create!({
+    card_id: 8,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Rankle Master of Prankle back at it again at Krispy Kreme!"
+  })
+
+  Comment9 = Comment.create!({
+    card_id: 9,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "So cool that this got a reprint"
+  })
+
+  Comment10 = Comment.create!({
+    card_id: 10,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "What an interesting direction to take Elspeth as a character, really powerful card too!"
+  })
+
+  Comment11 = Comment.create!({
+    card_id: 11,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "...What hope do you have, against 2?"
+  })
+
+  Comment12 = Comment.create!({
+    card_id: 12,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Shoutouts to Season 2 Yugi Deck!"
+  })
+
+  Comment13 = Comment.create!({
+    card_id: 13,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Just wait until he plays Mystical Hats!"
+  })
+
+  Comment14 = Comment.create!({
+    card_id: 14,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "This is a World of Warcraft reference. I'm sure of it!"
+  })
+
+  Comment15 = Comment.create!({
+    card_id: 15,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Kuriboh is going to make a rainbow bridge directly to your life points. Which allows my Gaia the Fierce Knight to bypass your monsters and attack your life points directly!"
+  })
+
+  Comment16 = Comment.create!({
+    card_id: 16,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "These WCPS promos are real cool"
+  })
+
+  Comment17 = Comment.create!({
+    card_id: 17,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "My favorite YuGiOh card!"
+  })
+
+  Comment18 = Comment.create!({
+    card_id: 18,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "This implies the existence of a Fire Lord, Frost Lord, Nature Lord, Shadow Lord, and Holy Lord"
+  })
+
+  Comment19 = Comment.create!({
+    card_id: 19,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Thank you for coutering ridiculous combos o7"
+  })
+
+  Comment20 = Comment.create!({
+    card_id: 20,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Banned but never forgotten!"
+  })
+
+  Comment21 = Comment.create!({
+    card_id: 21,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "An oldie, and STILL a goodie!"
+  })
+
+  Comment22 = Comment.create!({
+    card_id: 22,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "TFW you try to play HEROs against this card"
+  })
+
+  Comment23 = Comment.create!({
+    card_id: 23,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Another valiant soldier to fight against all of the combo decks"
+  })
+
+  Comment24 = Comment.create!({
+    card_id: 24,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Discard your hand and draw 7!? OP!"
+  })
+
+  Comment25 = Comment.create!({
+    card_id: 25,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "You could have just walked away, but you didn't you jerk!"
+  })
+
+  Comment26 = Comment.create!({
+    card_id: 26,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Just wait until he pulls out his sunglasses!"
+  })
+
+  Comment27 = Comment.create!({
+    card_id: 27,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Hail to the king baby!"
+  })
+
+  Comment28 = Comment.create!({
+    card_id: 28,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "The tool to catch "
+  })
+
+  Comment29 = Comment.create!({
+    card_id: 29,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "This is a Fate reference"
+  })
+
+  Comment30 = Comment.create!({
+    card_id: 30,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "One cool croc"
+  })
+
+  Comment31 = Comment.create!({
+    card_id: 31,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Tidy Up."
+  })
+
+  Comment32 = Comment.create!({
+    card_id: 32,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "The legs creep me out every time"
+  })
+
+  Comment33 = Comment.create!({
+    card_id: 33,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Slowbro."
+  })
+
+  Comment34 = Comment.create!({
+    card_id: 34,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Wiglett Wig doesn't roll off the tongue as well as Diglett Dig."
+  })
+
+  Comment35 = Comment.create!({
+    card_id: 35,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "BIG BOY!"
+  })
+
+  Comment36 = Comment.create!({
+    card_id: 36,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "The answer to the question: How do you make a tissue dance?"
+  })
+
+  Comment37 = Comment.create!({
+    card_id: 37,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Perfect, no notes"
+  })
+
+  Comment38 = Comment.create!({
+    card_id: 38,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "The Winged King!"
+  })
+
+  Comment39 = Comment.create!({
+    card_id: 39,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "The Iron Serpent!"
+  })
+
+  Comment40 = Comment.create!({
+    card_id: 40,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "This is a Dark Souls reference."
+  })
+
+  Comment41 = Comment.create!({
+    card_id: 41,
+    commenter_id: User.all[Random.rand(11)].id,
+    body: "Good dog."
+  })
+
   puts "Done!"

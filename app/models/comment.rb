@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  id           :bigint           not null, primary key
+#  card_id      :bigint           not null
+#  commenter_id :bigint           not null
+#  body         :text             not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
 class Comment < ApplicationRecord
 
     validates :card_id, presence: true
