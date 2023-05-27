@@ -89,5 +89,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
 
+.CheckedOut{
+    display: flex;
+    margin: auto 0;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }

@@ -1,12 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Comments.css";
-import { deleteComment } from "../../store/comment";
+import { deleteComment, updateComment } from "../../store/comment";
 
 
-function CommentBox({comment, user}) {
+function CommentBox({comment, user, card}) {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
+    const [editing, setEditing] = useState(false);
+    const [body, setBody] = useState("");
+
+    console.log(card);
+    console.log(editing);
+
+    const handleEdit = () => {
+        setEditing(true);
+        setBody(comment.body)
+    }
+
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        let newComment = {};
+        newComment.id = comment.id;
+        newComment.commenterId = sessionUser.id;
+        newComment.cardId = card;
+        newComment.body = body;
+        setEditing(false);
+        return dispatch(updateComment(newComment));
+    }
+
+    const update = (field) => {
+        return e => {
+          switch (field) {
+            case 'body':
+                setBody(e.currentTarget.value);
+                break;
+            default:
+                console.error('Field name error');
+                break;
+            }
+        }
+    }
 
     let returnButton;
     if(sessionUser){
@@ -14,7 +48,7 @@ function CommentBox({comment, user}) {
         returnButton = (
             <div className="UpdateAndDelete">
                 <button id="button-delete" onClick={() => dispatch(deleteComment(comment.id))}>Delete</button>
-                <button id="button-update">Edit</button>
+                <button id="button-update" onClick={handleEdit}>Edit</button>
             </div>
             )
         }
@@ -24,13 +58,24 @@ function CommentBox({comment, user}) {
             )
     }
 
-    return (
-        <div className="commentBox">
-            <h3>{user.username}</h3>
-            <p>{comment.body}</p>
-            {returnButton}
-        </div>
-    )
+    if(editing){
+        return (
+            <div>
+                <form onSubmit={handleUpdate} >
+                            <textarea value={body} onChange={update('body')}/>
+                        <input id="submit-button" type="submit" value={"Submit Comment"}/>
+                </form>
+            </div>
+        )
+    } else {
+        return (
+            <div className="commentBox">
+                <h3>{user.username}</h3>
+                <p>{comment.body}</p>
+                {returnButton}
+            </div>
+        )
+    }
 }
 
 export default CommentBox;

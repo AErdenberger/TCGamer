@@ -72,14 +72,14 @@ function CardShow(){
         return e => {
           switch (field) {
             case 'body':
-              setBody(e.currentTarget.value);
-              break;
+                setBody(e.currentTarget.value);
+                break;
             default:
-              console.error('Field name error');
-              break;
-          }
+                console.error('Field name error');
+                break;
+            }
         }
-      }
+    }
 
     return(
         <div className="TheWholeCardShow">
@@ -104,10 +104,10 @@ function CardShow(){
                         })}
                     </ul>
                 </div>
-                <div>
+                <div className="CommentSubmit">
                     <form onSubmit={handleSubmit} >
                             <textarea value={body} onChange={update('body')}/>
-                        <input type="submit" value={"Submit Comment"}/>
+                        <input id="submit-button" type="submit" value={"Submit Comment"}/>
                     </form>
                 </div>
             </div>
