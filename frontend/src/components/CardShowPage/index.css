@@ -51,8 +51,9 @@
 .AllTheComments{
     background-color: lightblue;
     border: solid black 1px;
-    margin: 20px;
-    padding: 10px;
+    margin-top: 20px;
+    padding: 5px;
+    width: 300px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -64,4 +65,7 @@
     justify-content: baseline;
     align-items: baseline;
     text-align: center;
+    margin: 5px;
+    padding: 5px;
+    flex-direction: column;
 }

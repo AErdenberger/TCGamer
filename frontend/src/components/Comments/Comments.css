@@ -2,4 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: baseline;
+    flex-direction: column;
+}
+
+.UpdateAndDelete {
+    display: flex;
+    justify-content: space-around;
+    padding: 1px;
+    margin: 1px;
 }

@@ -5,7 +5,7 @@ class Api::CommentsController < ApplicationController
 
     def create
         @comment = Comment.new(comment_params)
-        if comment.save
+        if @comment.save
             render :show
         else
             render json: {errors: @comment.errors.full_messages}, status: 422

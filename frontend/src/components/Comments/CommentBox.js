@@ -10,7 +10,7 @@ function CommentBox({comment, user}) {
     if(sessionUser){
         if(sessionUser.id === comment.commenterId){
         returnButton = (
-            <div>
+            <div className="UpdateAndDelete">
                 <button id="button-delete">Delete</button>
                 <button id="button-update">Edit</button>
             </div>
