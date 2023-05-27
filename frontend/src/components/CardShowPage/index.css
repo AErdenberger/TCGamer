@@ -54,6 +54,7 @@
     background-color: lightblue;
     border: solid black 1px;
     margin-top: 20px;
+    margin-left: 2px;
     padding: 5px;
     width: 300px;
     display: flex;
@@ -70,12 +71,15 @@
     margin: 5px;
     padding: 5px;
     flex-direction: column;
+    width: fit-content;
+    height: fit-content;
 }
 
 .CommentSubmit{
     display: flex;
     justify-content: baseline;
     flex-direction: column;
+    margin: 2px;
 }
 
 #submit-button{

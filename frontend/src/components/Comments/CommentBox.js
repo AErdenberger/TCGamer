@@ -10,9 +10,6 @@ function CommentBox({comment, user, card}) {
     const [editing, setEditing] = useState(false);
     const [body, setBody] = useState("");
 
-    console.log(card);
-    console.log(editing);
-
     const handleEdit = () => {
         setEditing(true);
         setBody(comment.body)
@@ -60,10 +57,10 @@ function CommentBox({comment, user, card}) {
 
     if(editing){
         return (
-            <div>
+            <div className="UpdatingComment">
                 <form onSubmit={handleUpdate} >
-                            <textarea value={body} onChange={update('body')}/>
-                        <input id="submit-button" type="submit" value={"Submit Comment"}/>
+                    <textarea value={body} onChange={update('body')} id="update-text-box"/>
+                    <input id="submit-update" type="submit" value={"Update"}/>
                 </form>
             </div>
         )

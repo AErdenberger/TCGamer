@@ -28,7 +28,8 @@
     display: flex;
     height: 350px;
     justify-content: center;
-
+    margin: 20px;
+    gap: 20px;
 }
 
 .TheWholeCart {

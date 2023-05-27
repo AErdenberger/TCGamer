@@ -60,6 +60,7 @@ function CardShow(){
             newComment.commenterId = sessionUser.id;
             newComment.cardId = cardId;
             newComment.body = body;
+            setBody("");
             dispatch(createComment(newComment))
         } else {
             alert("Not Signed in", "You must be signed in in order to comment")
