@@ -4,6 +4,7 @@
     align-items: baseline;
     flex-direction: column;
     text-align: left;
+    border-bottom: grey 1px solid;
 }
 
 .UpdateAndDelete {
