@@ -1,0 +1,67 @@
+.commentBox{
+    display: flex;
+    justify-content:baseline;
+    align-items: baseline;
+    flex-direction: column;
+    text-align: left;
+}
+
+.UpdateAndDelete {
+    display: flex;
+    justify-content: space-around;
+    padding: 1px;
+    margin: 1px;
+}
+
+#button-delete{
+    border-radius: 8px;
+    background-color: #0835db;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    width: fit-content;
+    height: 20%;
+    padding: 10px;
+    border: none;
+    margin: 2px;
+    cursor: pointer;
+}
+
+#button-update{
+    border-radius: 8px;
+    background-color: #0835db;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    width: fit-content;
+    height: 20%;
+    padding: 10px;
+    border: none;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.UpdatingComment{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#submit-update{
+    border-radius: 8px;
+    background-color: #0835db;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    width: fit-content;
+    height: 20%;
+    padding: 10px;
+    border: none;
+    margin: 2px;
+    cursor: pointer;
+}
+
+#update-text-box{
+    width: fit-content;
+    height: fit-content;
+}

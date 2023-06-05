@@ -28,7 +28,8 @@
     display: flex;
     height: 350px;
     justify-content: center;
-
+    margin: 20px;
+    gap: 20px;
 }
 
 .TheWholeCart {
@@ -89,5 +90,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
 
+.CheckedOut{
+    display: flex;
+    margin: auto 0;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }

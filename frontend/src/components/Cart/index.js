@@ -20,8 +20,8 @@ function Cart() {
     if (!cartItems || !cartItems.length) {
         if(checkedOut){
             return(
-                <div>
-                    <h1>You have successfully Checkedout! Enjoy your cards!</h1>
+                <div className="CheckedOut">
+                    <h1>You have successfully Checked Out! Enjoy your cards!</h1>
                 </div>
             )
         } else {

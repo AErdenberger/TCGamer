@@ -4,12 +4,16 @@ import sessionReducer from './session';
 import cardsReducer from './card';
 import searchBarTextReducer from './searchBar';
 import cartItemReducer from './cart';
+import commentsReducer from './comment';
+import userReducer from './user';
 
 export const rootReducer = combineReducers({
     session: sessionReducer,
     cards: cardsReducer,
     searchBar: searchBarTextReducer,
-    cartItems: cartItemReducer
+    cartItems: cartItemReducer,
+    comments: commentsReducer,
+    users: userReducer
 });
 
 let enhancer;

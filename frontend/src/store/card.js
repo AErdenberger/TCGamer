@@ -1,3 +1,4 @@
+import csrfFetch from "./csrf"
 import { RECEIVE_CARTITEMS } from "./cart";
 
 export const RECEIVE_CARDS = 'cards/RECEIVE_CARDS';
@@ -22,7 +23,7 @@ export const getCards = (state) => {
 }
 
 export const fetchCards = () => async dispatch => {
-    let res = await fetch('/api/cards');
+    let res = await csrfFetch('/api/cards');
     if (res.ok){
         let { cards } = await res.json();
         return dispatch(receiveCards(cards))
@@ -30,7 +31,7 @@ export const fetchCards = () => async dispatch => {
 }
 
 export const fetchCardsByGameName = (cardGameName) => async dispatch => {
-    let res = await fetch(`/api/cards?cardGameName=${cardGameName}`);
+    let res = await csrfFetch(`/api/cards?cardGameName=${cardGameName}`);
     if (res.ok){
         let { cards } = await res.json();
         return dispatch(receiveCards(cards))
@@ -38,7 +39,7 @@ export const fetchCardsByGameName = (cardGameName) => async dispatch => {
 }
 
 export const fetchCard = (cardId) => async dispatch => {
-    let res = await fetch(`/api/cards/${cardId}`);
+    let res = await csrfFetch(`/api/cards/${cardId}`);
     if (res.ok){
         let { card } = await res.json();
         return dispatch(receiveCard(card))
