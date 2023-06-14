@@ -59,4 +59,11 @@
 
 .The-Whole-Top-Corner{
     display: flex;
+    align-items: center;
+    width: 163px;
+}
+
+.profile-button{
+    width: 30px;
+    height: 30px;
 }
