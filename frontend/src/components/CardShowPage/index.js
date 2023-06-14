@@ -82,38 +82,66 @@ function CardShow(){
         }
     }
 
-    return(
-        <div className="TheWholeCardShow">
-            <img className="CardShowImage" src={card?.photo}></img>
-            <div>
-                <h1 className="CardShowName">{card?.name}</h1>
-                <div className="AddCardtoCart">
-                    <ul className="CardShowData">
-                        <li>Game: {card?.game}</li>
-                        <li>Set: {card?.set}</li>
-                        <li>Price: ${cardPrice}</li>
-                    </ul>
-                    <button className="AddtoCartButton" onClick={handleClick}>Add to Cart</button>
+    if(sessionUser){
+        return(
+            <div className="TheWholeCardShow">
+                <img className="CardShowImage" src={card?.photo}></img>
+                <div>
+                    <h1 className="CardShowName">{card?.name}</h1>
+                    <div className="AddCardtoCart">
+                        <ul className="CardShowData">
+                            <li>Game: {card?.game}</li>
+                            <li>Set: {card?.set}</li>
+                            <li>Price: ${cardPrice}</li>
+                        </ul>
+                        <button className="AddtoCartButton" onClick={handleClick}>Add to Cart</button>
+                    </div>
+                </div>
+                <Link className="LinkBack" to='/cards'>Return to Cards Page</Link>
+                <div className="CommentsContainer">
+                    <div className="AllTheComments">
+                        <ul className="CommentsList">
+                            {commentsArr.map(comment => {
+                                return <CommentBox key={comment.id} comment={comment} user={users[comment?.commenterId]} card={cardId}/>
+                            })}
+                        </ul>
+                    </div>
+                    <div className="CommentSubmit">
+                        <form onSubmit={handleSubmit} >
+                                <textarea value={body} onChange={update('body')}/>
+                            <input id="submit-button" type="submit" value={"Submit Comment"}/>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <Link className="LinkBack" to='/cards'>Return to Cards Page</Link>
-            <div className="CommentsContainer">
-                <div className="AllTheComments">
-                    <ul className="CommentsList">
-                        {commentsArr.map(comment => {
-                            return <CommentBox key={comment.id} comment={comment} user={users[comment?.commenterId]} card={cardId}/>
-                        })}
-                    </ul>
+        )
+    } else {
+        return (
+            <div className="TheWholeCardShow">
+                <img className="CardShowImage" src={card?.photo}></img>
+                <div>
+                    <h1 className="CardShowName">{card?.name}</h1>
+                    <div className="AddCardtoCart">
+                        <ul className="CardShowData">
+                            <li>Game: {card?.game}</li>
+                            <li>Set: {card?.set}</li>
+                            <li>Price: ${cardPrice}</li>
+                        </ul>
+                    </div>
                 </div>
-                <div className="CommentSubmit">
-                    <form onSubmit={handleSubmit} >
-                            <textarea value={body} onChange={update('body')}/>
-                        <input id="submit-button" type="submit" value={"Submit Comment"}/>
-                    </form>
+                <Link className="LinkBack" to='/cards'>Return to Cards Page</Link>
+                <div className="CommentsContainer">
+                    <div className="AllTheComments">
+                        <ul className="CommentsList">
+                            {commentsArr.map(comment => {
+                                return <CommentBox key={comment.id} comment={comment} user={users[comment?.commenterId]} card={cardId}/>
+                            })}
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 
 }
 

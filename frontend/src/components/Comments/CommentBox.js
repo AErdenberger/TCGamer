@@ -67,8 +67,8 @@ function CommentBox({comment, user, card}) {
     } else {
         return (
             <div className="commentBox">
-                <h3>{user.username}</h3>
-                <p>{comment.body}</p>
+                <h3>{user?.username}</h3>
+                <p>{comment?.body}</p>
                 {returnButton}
             </div>
         )
