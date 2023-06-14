@@ -43,7 +43,7 @@ function LoginFormPage() {
                         <li key={error}>{error}</li>)}
                 </ul>
                 <h1>Log In</h1>
-                <label>Username or Email
+                <label>Username
                     <input id='credentials' type="text" value={credential} onChange={(e) => setCredential(e.target.value)} required />
                 </label>
                 <label>Password
