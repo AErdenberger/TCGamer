@@ -55,15 +55,8 @@
 
 .profile-area{
     display: flex;
-    position: absolute;
 }
 
 .The-Whole-Top-Corner{
     display: flex;
-    position: absolute;
-}
-
-.profile-button{
-    display:block;
-    position: absolute;
 }
